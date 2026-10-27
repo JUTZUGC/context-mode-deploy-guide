@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "contextmode-guide": {
+      "command": "node",
+      "args": [
+        "mcp-server.mjs"
+      ]
+    }
+  }
+}

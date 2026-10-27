@@ -1,0 +1,107 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "contextmode",
+    "nameCn": "Context Mode",
+    "repoName": "context-mode-deploy-guide",
+    "oneLiner": "32.4k stars，TypeScript，给 AI 编程 Agent 做上下文压缩、会话记忆与跨平台路由",
+    "officialRepo": "https://github.com/mksglu/context-mode",
+    "officialDocs": "https://github.com/mksglu/context-mode#install",
+    "stars": "32.4k",
+    "license": "未声明（见仓库 LICENSE）",
+    "highlights": [
+      "工具输出沙箱：只把摘要回给模型，原始内容留在本地",
+      "会话记忆：跨会话保留关键结论，不用反复贴背景",
+      "跨平台路由：17 个客户端共用一套规则",
+      "MCP 原生：标准 MCP server，任何支持 MCP 的客户端都能接",
+      "两种形态：插件模式带 hooks，MCP-only 模式零侵入",
+      "TypeScript：源码可读，方便二次改造"
+    ],
+    "mcpSupport": "context-mode 本身就是 MCP server，`claude mcp add context-mode -- npx -y context-mode` 即可注册；本仓库只提供安装与配置说明。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-10-27",
+    "verification": [
+      [
+        "npm 包 context-mode 最新版 1.0.169，bin 指向 cli.bundle.mjs",
+        "已核对 2026-10-27"
+      ],
+      [
+        "仓库元数据已核对：32.4k stars、TypeScript、2026-02 建仓",
+        "已核对 2026-10-27"
+      ],
+      [
+        "README 确认支持插件模式与 MCP-only 两种安装",
+        "已核对 2026-10-27"
+      ],
+      [
+        "未实测安装与压缩效果",
+        "说明 2026-10-27"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "requires": [
+        "node"
+      ],
+      "steps": [
+        "npm install -g context-mode",
+        "claude mcp add context-mode -- npx -y context-mode",
+        "context-mode --help",
+        "claude mcp list | grep -q context-mode && echo 'MCP 已注册' || echo '未注册成功，检查 claude 版本'"
+      ],
+      "stepsPs": [
+        "npm.cmd install -g context-mode",
+        "claude mcp add context-mode -- npx -y context-mode",
+        "context-mode --help",
+        "claude mcp list | Select-String 'context-mode'"
+      ],
+      "source": "https://github.com/mksglu/context-mode#install"
+    },
+    "pitfalls": [
+      "`/plugin` 不识别：先升级 Claude Code",
+      "MCP 连不上：先单独跑一次 `npx -y context-mode` 看报错",
+      "Node 版本太低：Gemini CLI 场景需要 22.5+",
+      "装了插件又加 MCP 会重复：二选一",
+      "压缩后细节丢失：重要输出自己落盘",
+      "多客户端规则不同步：按文档复制一份路由文件"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/context-mode-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/context-mode-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "Context Mode 部署",
+    "上下文 压缩 MCP",
+    "AI 编程 上下文 优化",
+    "Claude Code 记忆",
+    "MCP 路由 17 平台",
+    "token 节省 工具",
+    "会话记忆 持久化",
+    "context mode 安装",
+    "AI Agent 上下文管理",
+    "context-mode 中文"
+  ],
+  "topics": [
+    "mcp",
+    "context-engineering",
+    "claude-code",
+    "ai-agents",
+    "typescript",
+    "memory"
+  ]
+}
